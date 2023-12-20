@@ -1,0 +1,14 @@
+.barre-de-vie {
+    width: 100px;
+    height: 36px;
+    background-color: rgb(212, 212, 212);
+    border-radius: 3px;
+}
+
+
+.barre-de-vie div:first-child {
+    height: 36px;
+    background: linear-gradient(90deg, #6ABCD2 2.96%, #8535A1 102.96%);
+    border-radius: 3px;
+}
+

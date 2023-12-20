@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+
+
+</head>
+<body id="app">
+  
+    <h1 class="text-center">Jeu d'attaque tour par tour</h1>
+
+    <div>
+        <h2 v-if="vieJoueur1 <= 0 && vieJoueur2 <= 0">Egalité</h2>
+        <h2 v-else-if="vieJoueur1 <= 0">Pékin a gagné !</h2>
+        <h2 v-else-if="vieJoueur2 <= 0">Boonie a gagné !</h2>
+        <div v-else>
+            <div class="container">
+                <div class="row d-flex align-items-center">
+                    <div class="col-5 d-flex justify-content-center flex-column align-items-center">
+                        <img src="photo-boonie.jpg" alt="Photo du joueur 1" width="200" height="200">
+                        <h2>Boonie</h2>
+                        <p>Vie du joueur 1 : {{vieJoueur1}}</p>
+                        <div class="d-flex align-items-center">
+                            <button class="btn me-2 text-light" @click="soignerJoueur1" style="background-color: #8535A1;">Soin</button>
+                            <!--Barre de vie-->
+                            <div class="barre-de-vie">
+                                <div :style="{width: vieJoueur1 + 'px'}"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2 text-center d-flex flex-column">
+                        <h3 class="mb-5">Tour : {{round}}</h3>
+                        <button class="btn mb-2 text-light" @click="attackAdversaire" style="background-color: rgb(214, 79, 124);">Attaque</button>
+                        <button class="btn text-light" @click="attackMagique" :disabled="buttonDisabled" style="background-color: goldenrod;">Magique</button>
+                    </div>
+                    <div class="col-5 d-flex justify-content-center flex-column align-items-center">
+                        <img src="photo-pekin.jpg" alt="Photo du joueur 2" width="200" height="200">
+                        <h2>Pékin</h2>
+                        <p>Vie du joueur 2 : {{vieJoueur2}}</p>
+                        <div class="d-flex align-items-center">
+                            <button class="btn text-light me-2" @click="soignerJoueur2" style="background-color: #8535A1;">Soin</button>
+                            <!--Barre de vie-->
+                            <div class="barre-de-vie">
+                                <div :style="{width: vieJoueur2 + 'px'}"></div>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+    <!-- script pour contacter VUE -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="app.js"></script>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+</body>
+</html>
